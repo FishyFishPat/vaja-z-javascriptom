@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vaja 4 - Naloga 1</title>
+</head>
+<style>
+    .green {
+        color: green;
+        font-weight: bold;
+    }
+    .red {
+        color: red;
+        font-weight: bold;
+    }
+</style>
+<body>
+
+</body>
+<script>
+    // Funkcija ki nam vrne pofarbano številko
+    let barva = (stevilo) => {
+        console.log("Stevilo: ", stevilo);
+        if (stevilo >= 0) return "green";
+        if (stevilo < 0) return "red";
+    }
+    // A, B Vnos preko window.prompt
+    let a, b;
+    a = parseInt(window.prompt("Vnesi vrednost z A"));
+    b = parseInt(window.prompt("Vnesi vrednost z B"));
+    // Če katero od št ni št izpiše napako (isNaN)
+    if (!isNaN(a) && !isNaN(b)) {
+        document.write("A: ");
+        document.write("<span class='"+barva(a)+"'>"+a+"</span>")
+        document.write("<br> B: ");
+        document.write("<span class='"+barva(b)+"'>"+b+"</span>")
+
+        // Izpišejo obe števili, vsota, razlika, zmnožek, deljenje, ostanek pri deljenju ali je A večji, manjši ali enak B (parseInt, Number)
+        document.write("<br>Seštevek števil: <span class='"+barva(a+b)+"'>"+(a+b)+"</span>");
+        document.write("<br>Razlika števil: <span class='"+barva(a-b)+"'>"+(a-b)+"</span>");
+        document.write("<br>Zmnožek števil: <span class='"+barva(a*b)+"'>"+(a*b)+"</span>");
+        // Če B == potem deljenja in ostanek pri deljenju ni in izpiše "ni izvedljivo"
+        if (b === 0) {
+            document.write("<br>Deljenje števil: ni izvedljivo");
+            document.write("<br>Ostanek pri deljenju: ni izvedljivo");
+        } else {
+            document.write("<br>Deljenje števil: <span class='"+barva(a/b)+"'>"+(a/b)+"</span>");
+            document.write("<br>Ostanek pri deljenju: <span class='"+barva(a%b)+"'>"+(a%b)+"</span>");
+        }
+        if ( a == b) {
+            document.write("<br> A je enak B")
+        } else {
+            a > b ? document.write("<br> A je večji od B") : document.write("<br> A je manjši od B");
+        }
+    } else {
+        document.write("<h1>Napaka</h1>")
+    }
+</script>
+</html>
